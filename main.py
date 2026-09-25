@@ -1,21 +1,20 @@
 from pyscript import display, document
 
 
-def generate_sku(e):
-    # Clears the div content
-    document.getElementById("sku_receipt").innerHTML = ""
+def calculate_total(e):
+    document.getElementById("receipt").innerHTML = ""
 
-    # Gets the category 
-    category = document.getElementById("category").value
+    americano = document.getElementById("americano").checked
+    spanish_latte = document.getElementById("spanish_latte").checked
+    cold_brew_malt = document.getElementById("cold_brew_malt").checked
+    affogato = document.getElementById("affogato").checked
 
-    # Gets the product name
-    product_name = document.getElementById("product_name").value
+    subtotal = (americano * 120) + (spanish_latte * 150) + (cold_brew_malt * 168) + (affogato * 180)
 
-    # Gets the stock quantity
-    stock_qty = document.getElementById("stock_qty").value
+    tax = subtotal * 0.12
+    total = subtotal + tax
 
-    # Creates the SKU itself
-    SKU = category[:3].upper() + "-" + product_name[:4].upper() + "-" + stock_qty
-
-    # Displays the SKU
-    display("SKU: " + SKU, target="sku_receipt")
+    display("Receipt", target="receipt")
+    display(f"Subtotal: ₱{subtotal}", target="receipt")
+    display(f"Tax: ₱{tax}", target="receipt")
+    display(f"Total: ₱{total}", target="receipt")
