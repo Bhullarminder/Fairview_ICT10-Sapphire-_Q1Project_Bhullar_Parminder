@@ -15,7 +15,7 @@ def generate_sku(e):
     stock_qty = document.getElementById("stock_qty").value
 
     # Creates the SKU itself
-    SKU = category[:3].upper() + "-" + product_name[:4].upper() + "-" + stock_qty
+    SKU = category[:4].upper() + "-" + product_name[:5].upper() + "-" + stock_qty
 
     # Displays the SKU
     display("SKU: " + SKU, target="sku_receipt")
