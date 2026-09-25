@@ -6,10 +6,10 @@ def generate_sku(e):
     document.getElementById("sku_receipt").innerHTML = ""
 
     # Gets the category 
-    category = document.getElementById("category").value
+    category = document.getElementById("category").cheked
 
     # Gets the product name
-    product_name = document.getElementById("product_name").value
+    product_name = document.getElementById("product_name").checked
 
     # Gets the stock quantity
     stock_qty = document.getElementById("stock_qty").value
